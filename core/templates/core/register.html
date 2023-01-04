@@ -1,14 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'core/base.html' %}
 
 {% block content %}
-
+<div class="header-bar">
 <h1>Register</h1>
+</div>
 
+<div class="form-body">
 <form action="" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Register">
+    <label for="">{{form.username.label}}</label>
+    {{form.username}}
+    <label for="">{{form.password1.label}}</label>
+    {{form.password1}}
+    <label for="">{{form.password2.label}}</label>
+    {{form.password2}}
+   
+    <input type="submit" value="Register" class="btn" style="margin-top: 6px;">
 </form>
 
 <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
 {% endblock %}
